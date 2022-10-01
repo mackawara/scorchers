@@ -22,13 +22,12 @@ const options = {
 };
 const uri = process.env.DB_URI;
 
-
 const database = mongoose.connection;
 database.on("error", console.error.bind(console, "connection error:"));
 database.once("open", function () {
   console.log(`DAtabase connection established`);
-  app.listen(PORT,console.log(" server listening"))
 });
+app.listen(PORT, console.log(" server listening"));
 
 // views Engine setup
 
@@ -44,7 +43,9 @@ app.use(express.json());
 app.use(upload.array());
 //ROUTES
 //HOME PAGE
-app.get("/registration", (req, res, next) => {
-  res.sendFile(__dirname + "/public/registration.html");
+app.get("/", (req, res, next) => {
+  res.sendFile(__dirname + "/public/landing.html");
 });
-
+app.get("/about", (req, res, next) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
