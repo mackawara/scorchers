@@ -2337,12 +2337,12 @@ body.is-touch .main {
 /* Intro */
 
 #intro {
-  background: url("../../images/fulls/groundingbatlandsc"),
-    url("../../images/fulls/groundingbatlandscape.jpg");
-  background-size: 256px 256px, cover;
+  background: url("../../images/fulls/blue_background_scorchers.jpg"),
+    url("../../images/fulls/scorchersplayer.png");
+  background-size: cover, auto 20%;
   background-attachment: fixed, fixed;
-  background-position: top left, bottom center;
-  background-repeat: repeat, no-repeat;
+  background-position: top left, center right;
+  background-repeat: no-repeat, no-repeat;
 }
 
 /* One */
