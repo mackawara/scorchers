@@ -2,7 +2,7 @@
   "name": "scorchers",
   "version": "1.0.0",
   "description": "fullstack app for a sports club",
-  "main": "app.js",
+  "main": "node app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start":"app.js"
