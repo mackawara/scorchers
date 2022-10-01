@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,900;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,700;0,800;0,900;1,100;1,600;1,700;1,800&family=Qwitcher+Grypen:wght@400;700&family=Roboto+Condensed:ital@1&display=swap");
 @import url("fontawesome-all.min.css");
 
 /*
@@ -2054,17 +2055,19 @@ body {
   -webkit-align-items: center;
   -ms-align-items: center;
   align-items: center;
-  -moz-justify-content: center;
-  -webkit-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
+  -moz-justify-content: left;
+  -webkit-justify-content: left;
+  -ms-justify-content: left;
+  justify-content: left;
   text-align: center;
   padding: 3em 0 3em 0;
+  flex-wrap: wrap;
 }
 
 .main.style1 h2 {
   font-size: 4.25em;
   line-height: 1em;
+  font-family: "Montserrat", sans-serif;
 }
 
 .main.style1 > .content {
@@ -2178,6 +2181,13 @@ body {
 
 .main.dark .button.style2.down {
   background-image: url("images/dark-arrow.svg");
+}
+#nurturing {
+  justify-self: left;
+  align-self: flex-start;
+  font-weight: 600;
+  width: 50%;
+  text-align: left;
 }
 
 body.is-touch .main {
@@ -2337,11 +2347,11 @@ body.is-touch .main {
 /* Intro */
 
 #intro {
-  background: url("../../images/fulls/blue_background_scorchers.jpg"),
-    url("../../images/fulls/scorchersplayer.png");
-  background-size: cover, auto 20%;
-  background-attachment: fixed, fixed;
-  background-position: top left, center right;
+  background-image: url("../../images/fulls/scorchersplayer.png"),
+    url("../../images/fulls/blue_background_scorchers.jpg");
+  background-size: auto 90%, cover;
+  /*  background-attachment: fixed, fixed; */
+  background-position: center right, center;
   background-repeat: no-repeat, no-repeat;
 }
 
@@ -2349,9 +2359,9 @@ body.is-touch .main {
 
 #one {
   background: url("../../images/fulls/scorchers_landscape_pics6Scorchers_cricket_hwange.jpg"),
-    url("../../images/fulls/scorchers_landscape_pics6Scorchers_cricket_hwange.jpg");
-  background-size: cover;
-  background-attachment: fixed, fixed;
+    url("../../images/fulls/scorchersplayer.png");
+  background-size: cover, 75% 20%;
+  /* background-attachment: fixed, fixed */
   background-position: top left, center center;
 }
 
