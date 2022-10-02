@@ -249,6 +249,15 @@ a:hover {
   font-family: "Font Awesome 5 Brands";
 }
 
+.button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+}
+.button:hover {
+  color: #ffff;
+  font-size: 2.25rem;
+}
 /* Wrapper */
 
 @-moz-keyframes wrapper {
@@ -323,6 +332,8 @@ a:hover {
 
   background: #348cb2 url("../../images/fulls/jumbotron_backgound.png") center
     center;
+  background-size: 25% 75%;
+  background-blend-mode: difference;
   background-repeat: no-repeat;
   height: 100%;
   left: 0;
