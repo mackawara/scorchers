@@ -43,9 +43,10 @@ app.use(express.json());
 app.use(upload.array());
 //ROUTES
 //HOME PAGE
-app.get("/", (req, res, next) => {
-  res.sendFile(__dirname + "/public/landing.html");
-});
+
 app.get("/about", (req, res, next) => {
   res.sendFile(__dirname + "/public/index.html");
 });
+app.get("/", (req, res, next) => {
+    res.sendFile(__dirname + "/public/landing.html");
+  });
