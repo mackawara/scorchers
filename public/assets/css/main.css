@@ -2188,6 +2188,7 @@ body {
   font-weight: 600;
   width: 50%;
   text-align: left;
+  padding: 0.5em;
 }
 
 body.is-touch .main {
