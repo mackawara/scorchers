@@ -27,7 +27,7 @@ database.on("error", console.error.bind(console, "connection error:"));
 database.once("open", function () {
   console.log(`DAtabase connection established`);
 });
-app.listen(PORT, console.log(" server listening"));
+app.listen(PORT, console.log(" server listening on port"+ PORT));
 
 // views Engine setup
 
