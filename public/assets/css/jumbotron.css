@@ -316,10 +316,10 @@ a:hover {
 /* BG */
 
 #bg {
-  -moz-animation: bg 60s linear infinite;
-  -webkit-animation: bg 60s linear infinite;
-  -ms-animation: bg 60s linear infinite;
-  animation: bg 60s linear infinite;
+  -moz-animation: bg 30s linear infinite;
+  -webkit-animation: bg 30s linear infinite;
+  -ms-animation: bg 30s linear infinite;
+  animation: bg 30s linear infinite;
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
@@ -330,16 +330,16 @@ a:hover {
   transform: translate3d(0, 0, 0);
   /* Set your background with this */
 
-  background: #348cb2 url("../../images/fulls/jumbotron_backgound.png") center
-    center;
+  background: #348cb2 url("../../images/fulls/blue_background_scorchers.jpg")
+    center left;
   background-size: 25% 75%;
-  background-blend-mode: difference;
   background-repeat: no-repeat;
   height: 100%;
   left: 0;
   opacity: 1;
   position: fixed;
   top: 0;
+  width: 100vw;
 }
 
 @-moz-keyframes bg {
@@ -408,7 +408,7 @@ a:hover {
 
 #bg {
   background-size: 2250px auto;
-  width: 6750px;
+  width: 100%;
 }
 
 /* Overlay */
@@ -476,9 +476,9 @@ a:hover {
 #main {
   height: 100%;
   left: 0;
+  top: 0;
   position: fixed;
   text-align: center;
-  top: 0;
   width: 100%;
 }
 
@@ -849,6 +849,88 @@ a:hover {
   width: 100%;
 }
 
+/* ultra Wide screen */
+@media screen and (min-width: 1681px) {
+  /* Basic */
+
+  body,
+  input,
+  select,
+  textarea {
+    font-size: 32px;
+  }
+
+  /* BG */
+
+  @-moz-keyframes bg {
+    0% {
+      -moz-transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      -moz-transform: translate3d(-25vw, 0, 0);
+      -webkit-transform: translate3d(-25vw, 0, 0);
+      -ms-transform: translate3d(-25vw, 0, 0);
+      transform: translate3d(-25vw, 0, 0);
+    }
+  }
+
+  @-webkit-keyframes bg {
+    0% {
+      -moz-transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      -moz-transform: translate3d(-25vw, 0, 0);
+      -webkit-transform: translate3d(-25vw, 0, 0);
+      -ms-transform: translate3d(-25vw, 0, 0);
+      transform: translate3d(-25vw, 0, 0);
+    }
+  }
+
+  @-ms-keyframes bg {
+    0% {
+      -moz-transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      -moz-transform: translate3d(-25vw, 0, 0);
+      -webkit-transform: translate3d(-25vw, 0, 0);
+      -ms-transform: translate3d(-25vw, 0, 0);
+      transform: translate3d(-25vw, 0, 0);
+    }
+  }
+
+  @keyframes bg {
+    0% {
+      -moz-transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      -moz-transform: translate3d(-25vw, 0, 0);
+      -webkit-transform: translate3d(-25vw, 0, 0);
+      -ms-transform: translate3d(-25vw, 0, 0);
+      transform: translate3d(-25vw, 0, 0);
+    }
+  }
+
+  #bg {
+    background-size: 180vw 180vh;
+    width: 230vw;
+  }
+}
 /* Wide */
 
 @media screen and (max-width: 1680px) {
@@ -872,10 +954,10 @@ a:hover {
     }
 
     100% {
-      -moz-transform: translate3d(-1500px, 0, 0);
-      -webkit-transform: translate3d(-1500px, 0, 0);
-      -ms-transform: translate3d(-1500px, 0, 0);
-      transform: translate3d(-1500px, 0, 0);
+      -moz-transform: translate3d(-300px, 0, 0);
+      -webkit-transform: translate3d(-300px, 0, 0);
+      -ms-transform: translate3d(-300px, 0, 0);
+      transform: translate3d(-300px, 0, 0);
     }
   }
 
@@ -888,10 +970,10 @@ a:hover {
     }
 
     100% {
-      -moz-transform: translate3d(-1500px, 0, 0);
-      -webkit-transform: translate3d(-1500px, 0, 0);
-      -ms-transform: translate3d(-1500px, 0, 0);
-      transform: translate3d(-1500px, 0, 0);
+      -moz-transform: translate3d(-300px, 0, 0);
+      -webkit-transform: translate3d(-300px, 0, 0);
+      -ms-transform: translate3d(-300px, 0, 0);
+      transform: translate3d(-300px, 0, 0);
     }
   }
 
@@ -904,10 +986,10 @@ a:hover {
     }
 
     100% {
-      -moz-transform: translate3d(-1500px, 0, 0);
-      -webkit-transform: translate3d(-1500px, 0, 0);
-      -ms-transform: translate3d(-1500px, 0, 0);
-      transform: translate3d(-1500px, 0, 0);
+      -moz-transform: translate3d(-300px, 0, 0);
+      -webkit-transform: translate3d(-300px, 0, 0);
+      -ms-transform: translate3d(-300px, 0, 0);
+      transform: translate3d(-300px, 0, 0);
     }
   }
 
@@ -920,15 +1002,15 @@ a:hover {
     }
 
     100% {
-      -moz-transform: translate3d(-1500px, 0, 0);
-      -webkit-transform: translate3d(-1500px, 0, 0);
-      -ms-transform: translate3d(-1500px, 0, 0);
-      transform: translate3d(-1500px, 0, 0);
+      -moz-transform: translate3d(-300px, 0, 0);
+      -webkit-transform: translate3d(-300px, 0, 0);
+      -ms-transform: translate3d(-300px, 0, 0);
+      transform: translate3d(-300px, 0, 0);
     }
   }
 
   #bg {
-    background-size: 1500px auto;
+    background-size: 2280px 150vh;
     width: 4500px;
   }
 }
@@ -1004,16 +1086,16 @@ a:hover {
     }
 
     100% {
-      -moz-transform: translate3d(-750px, 0, 0);
-      -webkit-transform: translate3d(-750px, 0, 0);
-      -ms-transform: translate3d(-750px, 0, 0);
-      transform: translate3d(-750px, 0, 0);
+      -moz-transform: translate3d(-50vw, 0, 0);
+      -webkit-transform: translate3d(-50vw, 0, 0);
+      -ms-transform: translate3d(-50vw, 0, 0);
+      transform: translate3d(-50vw, 0, 0);
     }
   }
 
   #bg {
-    background-size: 750px auto;
-    width: 2250px;
+    background-size: 150vw 100vh;
+    width: 300vw;
   }
 }
 
@@ -1141,10 +1223,10 @@ a:hover {
     }
 
     100% {
-      -moz-transform: translate3d(-412.5px, 0, 0);
-      -webkit-transform: translate3d(-412.5px, 0, 0);
-      -ms-transform: translate3d(-412.5px, 0, 0);
-      transform: translate3d(-412.5px, 0, 0);
+      -moz-transform: translate3d(-25%, 0, 0);
+      -webkit-transform: translate3d(-25%, 0, 0);
+      -ms-transform: translate3d(-25%, 0, 0);
+      transform: translate3d(-25%, 0, 0);
     }
   }
 
@@ -1157,10 +1239,10 @@ a:hover {
     }
 
     100% {
-      -moz-transform: translate3d(-412.5px, 0, 0);
-      -webkit-transform: translate3d(-412.5px, 0, 0);
-      -ms-transform: translate3d(-412.5px, 0, 0);
-      transform: translate3d(-412.5px, 0, 0);
+      -moz-transform: translate3d(-25%, 0, 0);
+      -webkit-transform: translate3d(-25%, 0, 0);
+      -ms-transform: translate3d(-25%, 0, 0);
+      transform: translate3d(-25%, 0, 0);
     }
   }
 
@@ -1173,10 +1255,10 @@ a:hover {
     }
 
     100% {
-      -moz-transform: translate3d(-412.5px, 0, 0);
-      -webkit-transform: translate3d(-412.5px, 0, 0);
-      -ms-transform: translate3d(-412.5px, 0, 0);
-      transform: translate3d(-412.5px, 0, 0);
+      -moz-transform: translate3d(-25%, 0, 0);
+      -webkit-transform: translate3d(-25%, 0, 0);
+      -ms-transform: translate3d(-25%, 0, 0);
+      transform: translate3d(-25%, 0, 0);
     }
   }
 
@@ -1189,16 +1271,16 @@ a:hover {
     }
 
     100% {
-      -moz-transform: translate3d(-412.5px, 0, 0);
-      -webkit-transform: translate3d(-412.5px, 0, 0);
-      -ms-transform: translate3d(-412.5px, 0, 0);
-      transform: translate3d(-412.5px, 0, 0);
+      -moz-transform: translate3d(-25%, 0, 0);
+      -webkit-transform: translate3d(-25%, 0, 0);
+      -ms-transform: translate3d(-25%, 0, 0);
+      transform: translate3d(-25%, 0, 0);
     }
   }
 
   #bg {
-    background-size: 412.5px auto;
-    width: 1237.5px;
+    background-size: 150% 100vh;
+    width: 200%;
   }
 
   /* Header */
