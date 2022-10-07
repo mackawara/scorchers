@@ -7,8 +7,6 @@ const multer = require("multer");
 const upload = multer();
 const ejs = require("ejs");
 
-//const assert = require("assert/strict");
-
 // mongo db database
 const mongoose = require("mongoose");
 const { MongoClient } = require("mongodb");
@@ -27,7 +25,7 @@ database.on("error", console.error.bind(console, "connection error:"));
 database.once("open", function () {
   console.log(`DAtabase connection established`);
 });
-app.listen(PORT, console.log(" server listening on port"+ PORT));
+app.listen(PORT, console.log(" server listening on port" + PORT));
 
 // views Engine setup
 
@@ -44,9 +42,16 @@ app.use(upload.array());
 //ROUTES
 //HOME PAGE
 
+app.get("/", (req, res, next) => {
+  console.log(" home sectin");
+  res.sendFile(__dirname + "/public/landing.html");
+});
 app.get("/about", (req, res, next) => {
+  console.log(" about sectin");
   res.sendFile(__dirname + "/public/index.html");
 });
-app.get("/", (req, res, next) => {
-    res.sendFile(__dirname + "/public/landing.html");
-  });
+
+app.get("/registration", (req, res, next) => {
+  console.log(" registration sectin");
+  res.sendFile(__dirname + "/public/registration.html");
+});
