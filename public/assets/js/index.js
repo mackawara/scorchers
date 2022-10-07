@@ -2,7 +2,7 @@ window.addEventListener("DOMContentLoaded", () => {
   console.log(" dom loaded");
   let i = 0;
   const txt =
-    "Nurturing the next generation of cricket stars. join Today"; /* The text */
+    "Scorchers Crikcet: Nurturing the next generation of cricket stars. "; /* The text */
   const speed = 100; /* The speed/duration of the effect in milliseconds */
 
   function typeWriter() {
