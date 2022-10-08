@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--
+	Aerial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Scorchers Cricket</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- <div id="bg"></div> -->
+      <div id="overlay"></div>
+      <div id="main">
+        <!-- registration form -->
+        <div class="box">
+          <form method="post" action="#">
+            <div class="fields">
+              <div class="field half">
+                <input type="text" name="name"  placeholder="Name" />
+              </div>
+              <div class="field half other">
+                <label for="dob">Date of Birth</label><input type="date" name="dob"  max="2018-01-01" min="2009-01-01" placeholder="Date of Birth" />
+              </div>
+              <div class="field half">
+                <select class="form-select" name="school" id="school" >
+                    <option name="school" selected value="select-school" disabled>Select School</option>
+                    <option name="school" value="coalfields" class="selectOptions" id="coalfields1">
+                        Coalfields</option>
+                        <option name="school" value="Springfiled" class="selectOptions" id="Springfiled">
+                          Springfield</option>
+                          <option name="school" value="Popeye" class="selectOptions" id="Popeye">
+                         Popeye </option>
+                          <option name="school" value="Nursery" class="selectOptions" id="Nursery">
+                          Nursery</option>
+                         
+                    <option name="school" value="Nechibondo" class="selectOptions" id="Nechibondo"
+                        v>Nechibondo</option>
+                    <option name="school" value="megawatt" class="selectOptions" id="megaatt" >Megawatt</option>
+                    </option>
+                   
+                    <option name="school" value="stignatius" class="selectOptions" id="stignatius">
+                        St Ignatius</option>
+                    <option name="school" value="ingagula" class="selectOptions" id="ingagula1">
+                        Ingagula</option>
+                    <option name="school" value="Lusumbabmi" class="selectOptions" id="Lusumbabmi">
+                        Lusumbami</option>
+                    <option name="school" value="makwika" class="selectOptions" id="makwika">Makwika
+                    </option>
+        
+                    <option name="school" value="sirHumphrey" class="selectOptions" id="sirHumphrey">Sir Humphrey Gibbs
+                    </option>
+                    <option name="school" value="stGeorges" class="selectOptions" id="stGeorges">St Georges</option>
+                    <option name="school" value="mickeyMuffy" class="selectOptions" id="mickeyMuffy">Mickey   Muffy</option>
+                    <option name="school" value="thomasCoulter" class="selectOptions" id="thomasCoulter"> Thomas Coulter</option>
+                        <option name="school" value="mabhinga" class="selectOptions" id="mabhinga"> Mabhinga</option>
+                        <option name="school" value="other" class="selectOptions" id="other">
+                        other</option>
+                </select>
+                <small></small>
+              </div> <div class="field half">
+                <input type="email" name="email" placeholder="Email" />
+              </div>
+              <div class="field half">
+                <input type="text" name="parent" placeholder="Parent`s Name" />
+              </div>
+              <div class="field half">
+                <input type="tel" name="tel" placeholder="Contact number" />
+              </div>
+             
+              <div class="field half">
+                <input
+                  type="text"
+                  name="address"
+                  placeholder="Home Address"
+                />
+              </div>
+              <div class="field half">
+
+                <select id="surburb">
+                    <option value="selectOne" selected disabled>Surburb</option>
+                  <option value="CBD area">CBD area</option>
+                  <option value="No1 Lwendulu">Lwendulu</option>
+                  <option value="Cindrella">Cindrella</option>
+                  <option value="Railways">Railways</option>
+                  <option value="Empumalanga/Baobab/Chibondo">Empumalanga/Baobab/Chibondo</option>
+                <option value="Lusumbami">No5 Lusumbami</option>
+                    <option value="No2 Madumabisa">No2 Madumabisa</option>
+                    <option value="No3 Makwika">No3 Makwika</option>
+                    <option value="Lower Colliery">Lower Colliery</option>
+                    <option value="Other">Other</option>
+                    </select>
+              </div>
+
+              <div class="field">
+                <textarea
+                  name="health"
+                  placeholder="Please outline any known health issues that coaches should be aware"
+                  rows="6"
+                ></textarea>
+              </div>
+              <ul class="actions special">
+                <li><input type="submit" value="Submit" /></li>
+              </ul>
+            </div>
+          </form>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+          
+        </footer>
+      </div>
+    </div>
+    <script>
+      window.onload = function () {
+        document.body.classList.remove("is-preload");
+      };
+      window.ontouchmove = function () {
+        return false;
+      };
+      window.onorientationchange = function () {
+        document.body.scrollTop = 0;
+      };
+    </script>
+  </body>
+</html>
