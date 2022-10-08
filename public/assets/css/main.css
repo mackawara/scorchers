@@ -940,6 +940,14 @@ form > .fields > .field.quarter {
   form > .fields > .field {
     padding: 1em 0 0 1em;
     width: calc(100% - 1em);
+    display: flex;
+  }
+  form > .fields > .field.half.other {
+    padding: 1em 0 0 1em;
+    width: calc(100% - 1em);
+    display: flex;
+    flex-wrap: nowrap;
+    border: 1px solid red;
   }
 
   form > .fields > .field.half {
