@@ -1,6 +1,4 @@
 const express = require("express");
-//const router = express.Router();
-//const { dirname } = require("path/posix")
 const app = express();
 const PORT = process.env.PORT || 3000;
 const multer = require("multer");
@@ -18,7 +16,8 @@ const options = {
   useUnifiedTopology: true,
   dbname: databaseName,
 };
-const uri = process.env.DB_URI;
+const uri = process.env.MONGOBD_URI;
+let connection = mongoose.connect(process.env.MONGODB_URI || uri, options);
 
 const database = mongoose.connection;
 database.on("error", console.error.bind(console, "connection error:"));
@@ -50,15 +49,23 @@ app.get("/about", (req, res, next) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 
-const {validationRules,validatePlayer}=require("./middleware/validation")
+const { validationRules, validatePlayer } = require("./middleware/validation");
+
+const { savePlayerToDb, playerModel } = require("./middleware/savePlayer");
 
 app.get("/registration", (req, res, next) => {
   console.log(" registration sectin");
   res.sendFile(__dirname + "/public/registration.html");
 });
 
-app.post("/registration", validationRules(),validatePlayer,(req, res, next) => {
-  console.log(" reg received");
-  console.log(req.body);
-});
+app.post(
+  "/registration",
+  validationRules(),
+  validatePlayer,
+  savePlayerToDb,
+  (req, res, next) => {
+    res.render("regSuccess.ejs", { player: req.body });
+    /* res.status(200).send("Registration successfuly received"); */
+  }
+);
 app.listen(PORT, console.log(" server listening on port" + PORT));
