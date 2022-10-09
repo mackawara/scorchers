@@ -923,11 +923,19 @@ form > .fields > .field.half {
   width: calc(50% - 0.75em);
 }
 
+.btn-primary {
+  width: 100%;
+  margin: 1.5em;
+}
 form > .fields > .other {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  margin: 1.5em 0 0 1.5em;
+  width: calc(100%-1.5rem);
+  border: 1px solid red;
+  border-radius: 0.5em;
 }
 form > .fields > .field.third {
   width: calc(100% / 3 - 0.5em);
@@ -943,13 +951,16 @@ form > .fields > .field.quarter {
     margin: -1em 0 2em -1em;
   }
 
-  form > .fields > .field {
+  form > .fields > .field,
+  .other {
     padding: 1em 0 0 1em;
     width: calc(100% - 1em);
     display: flex;
+    margin: 0;
   }
 
-  form > .fields > .field.half {
+  form > .fields > .field.half,
+  .other {
     width: calc(100% - 1em);
   }
 
@@ -966,6 +977,7 @@ label {
   display: block;
 }
 
+input[type="date"],
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -992,7 +1004,11 @@ textarea {
   border-radius: 0.5em;
   outline: none;
 }
-
+input[type="date"] {
+  width: 50%;
+  border: none;
+}
+input[type="date"]:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus,
@@ -1003,7 +1019,7 @@ select:focus,
 textarea:focus {
   border-color: #9ac8e9;
 }
-
+input[type="date"],
 input[type="text"],
 input[type="password"],
 input[type="email"],

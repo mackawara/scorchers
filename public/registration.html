@@ -24,16 +24,18 @@
       <div id="main">
         <!-- registration form -->
         <div class="box">
-          <form method="post" action="#">
+          <form method="post" action="/registration">
             <div class="fields">
               <div class="field half">
-                <input type="text" name="name"  placeholder="Name" />
+                <input type="text" name="nameChild"  placeholder="Name of child" />
               </div>
-              <div class="field half other">
-                <label for="dob">Date of Birth</label><input type="date" name="dob"  max="2018-01-01" min="2009-01-01" placeholder="Date of Birth" />
+              <div class="half other">
+               
+                <label for="dob">Date of Birth</label>
+                <input type="date" name="dob"  max="2018-01-01" min="2009-01-01" placeholder="Date of Birth" />
               </div>
               <div class="field half">
-                <select class="form-select" name="school" id="school" >
+                <select class="form-select" name="school" id="school" >
                     <option name="school" selected value="select-school" disabled>Select School</option>
                     <option name="school" value="coalfields" class="selectOptions" id="coalfields1">
                         Coalfields</option>
@@ -72,10 +74,10 @@
                 <input type="email" name="email" placeholder="Email" />
               </div>
               <div class="field half">
-                <input type="text" name="parent" placeholder="Parent`s Name" />
+                <input type="text" name="parentName" placeholder="Parent`s Name" />
               </div>
               <div class="field half">
-                <input type="tel" name="tel" placeholder="Contact number" />
+                <input type="tel" name="contact" placeholder="Contact number" />
               </div>
              
               <div class="field half">
@@ -87,18 +89,18 @@
               </div>
               <div class="field half">
 
-                <select id="surburb">
-                    <option value="selectOne" selected disabled>Surburb</option>
-                  <option value="CBD area">CBD area</option>
-                  <option value="No1 Lwendulu">Lwendulu</option>
-                  <option value="Cindrella">Cindrella</option>
-                  <option value="Railways">Railways</option>
-                  <option value="Empumalanga/Baobab/Chibondo">Empumalanga/Baobab/Chibondo</option>
-                <option value="Lusumbami">No5 Lusumbami</option>
-                    <option value="No2 Madumabisa">No2 Madumabisa</option>
-                    <option value="No3 Makwika">No3 Makwika</option>
-                    <option value="Lower Colliery">Lower Colliery</option>
-                    <option value="Other">Other</option>
+                <select id="surburb" name="surburb">
+                    <option name="school" value="selectOne" selected disabled>Surburb</option>
+                  <option name="school" value="CBD area">CBD area</option>
+                  <option name="school" value="No1 Lwendulu">Lwendulu</option>
+                  <option name="school" value="Cindrella">Cindrella</option>
+                  <option name="school" value="Railways">Railways</option>
+                  <option name="school" value="Empumalanga/Baobab/Chibondo">Empumalanga/Baobab/Chibondo</option>
+                <option name="school" value="Lusumbami">No5 Lusumbami</option>
+                    <option name="school" value="No2 Madumabisa">No2 Madumabisa</option>
+                    <option name="school" value="No3 Makwika">No3 Makwika</option>
+                    <option name="school" value="Lower Colliery">Lower Colliery</option>
+                    <option name="school" value="Other">Other</option>
                     </select>
               </div>
 
@@ -109,9 +111,9 @@
                   rows="6"
                 ></textarea>
               </div>
-              <ul class="actions special">
-                <li><input type="submit" value="Submit" /></li>
-              </ul>
+          
+                <input type="submit" class="btn-primary" value="Submit" />
+            
             </div>
           </form>
         </div>
