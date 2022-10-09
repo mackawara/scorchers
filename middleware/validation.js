@@ -63,7 +63,6 @@ const validationRules = () => {
   ];
 };
 const validatePlayer = (req, res, next) => {
- 
   const result = validationResult(req);
 
   const myValidationResult = validationResult.withDefaults({
@@ -75,9 +74,17 @@ const validatePlayer = (req, res, next) => {
   });
   const errors = myValidationResult(req);
   if (!result.isEmpty()) {
-    res.status(422).send(errors.mapped());
+    const formatted = errors.mapped();
+    const arr = [];
+    for (const error in formatted) {
+      const element = formatted[error];
+      arr.push(element);
+      console.log(element);
+    }
 
-    console.log(errors.mapped());
+    console.log(arr);
+    res.status(422).render("regErr.ejs", { arr });
+
     //next() // to be removed
 
     //return res.json({ errors: sresult.array() });
