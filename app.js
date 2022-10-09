@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.Router();
+//const router = express.Router();
 //const { dirname } = require("path/posix")
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -50,12 +50,14 @@ app.get("/about", (req, res, next) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 
+const {validationRules,validatePlayer}=require("./middleware/validation")
+
 app.get("/registration", (req, res, next) => {
   console.log(" registration sectin");
   res.sendFile(__dirname + "/public/registration.html");
 });
 
-app.post("/registration", (req, res, next) => {
+app.post("/registration", validationRules(),validatePlayer,(req, res, next) => {
   console.log(" reg received");
   console.log(req.body);
 });
