@@ -25,7 +25,6 @@ database.on("error", console.error.bind(console, "connection error:"));
 database.once("open", function () {
   console.log(`DAtabase connection established`);
 });
-app.listen(PORT, console.log(" server listening on port" + PORT));
 
 // views Engine setup
 
@@ -36,13 +35,13 @@ app.set(`views`, __dirname + "/views");
 //rapp.use(express.static("public"));
 
 app.use(express.static(__dirname + "/public"));
-
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(upload.array());
 //ROUTES
 //HOME PAGE
-
-app.get("/", (req, res, next) => {
+app.get("/landing", (req, res, next) => {
+  console.log("test");
   console.log(" home sectin");
   res.sendFile(__dirname + "/public/landing.html");
 });
@@ -55,3 +54,9 @@ app.get("/registration", (req, res, next) => {
   console.log(" registration sectin");
   res.sendFile(__dirname + "/public/registration.html");
 });
+
+app.post("/registration", (req, res, next) => {
+  console.log(" reg received");
+  console.log(req.body);
+});
+app.listen(PORT, console.log(" server listening on port" + PORT));
