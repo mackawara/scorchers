@@ -4,7 +4,8 @@ window.addEventListener("DOMContentLoaded", () => {
   const txt =
     "Scorchers Cricket: Nurturing the next generation of cricket stars."; /* The text */
   const speed = 100; /* The speed/duration of the effect in milliseconds */
-const nurt=document.getElementById("nurturing")
+const nurturing=document.getElementById("nurturing")
+const regHeader=document.getElementById("regHeader")
  
   //typeWriter();
   async function typeWriter(element,text){
@@ -21,5 +22,6 @@ const nurt=document.getElementById("nurturing")
     }
 
   }
-  typeWriter(nurt,txt)
+  typeWriter(nurturing,txt)
+  typeWriter(regHeader,txt)
 });

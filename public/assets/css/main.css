@@ -754,6 +754,9 @@ table {
 .box.style2 {
   padding: 3.5em 2.5em 3.5em 2.5em;
 }
+.box p,h1 {
+  text-align: center;
+}
 /* tablet mobile Landscape */
 @media screen and (max-width: 736px) {
   .box {
@@ -935,7 +938,7 @@ form > .fields > .field.half {
   line-height: 2em;
   border-radius: 2rem;
   height: 3rem;
-  font: 1rem "Montserrat",sans-serrif;
+  font: 1rem "Montserrat", sans-serrif;
 }
 form > .fields > .other {
   display: flex;
