@@ -17,14 +17,16 @@ const options = {
   dbname: databaseName,
 };
 const uri = process.env.MONGOBD_URI;
-let connection = mongoose.connect(process.env.MONGODB_URI || uri, options);
-
-const database = mongoose.connection;
-database.on("error", console.error.bind(console, "connection error:"));
-database.once("open", function () {
-  console.log(`DAtabase connection established`);
-});
-
+try {
+  let connection = mongoose.connect(process.env.MONGODB_URI || uri, options);
+  const database = mongoose.connection;
+  database.on("error", console.error.bind(console, "connection error:"));
+  database.once("open", function () {
+    console.log(`DAtabase connection established`);
+  });
+} catch (error) {
+  console.log(" database could not be connected");
+}
 // views Engine setup
 
 app.set(`view engine`, ejs);
@@ -52,7 +54,7 @@ app.get("/about", (req, res, next) => {
 const { validationRules, validatePlayer } = require("./middleware/validation");
 
 const { savePlayerToDb, playerModel } = require("./middleware/savePlayer");
-
+const formatted = {};
 app.get("/registration", (req, res, next) => {
   console.log(" registration sectin");
   res.sendFile(__dirname + "/public/registration.html");

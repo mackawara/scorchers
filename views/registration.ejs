@@ -26,13 +26,19 @@
 <h1 class="text-center" id="regHeader"></h1>
       </div>
       <!-- registration form -->
+     
       <div class="box">
           <p class="text-center p-2">Please register by filling in all the details below</p>
           <form method="post" action="/registration">
-            
+           <% const arr=Object.keys(formatted)%>
+          <% arr.forEach((err)=>{%>
+         <%  console.log(.getElementById(err))%>
+          <% }) %> 
+           
             <div class="fields">
               <div class="field half">
                 <input type="text" name="nameChild"  placeholder="Name of child" />
+              <small><%= formatted.nameChild.message %> </small>
               </div>
               <div class="half other">
                
@@ -129,15 +135,13 @@
       </div>
     </div>
     <script>
+      
+     ;
+    </script>
+    <script>
+      
       window.onload = function () {
-      /*   const fields=document.getElementsByClassName("field")
-        console.log(fields)
-      fields.forEach(field => {
-        field.style.border="1px solid red "
-        console.log(" changed")
-        
-      }) */
-     
+       // document.getElementById(`${formatted.nameChild}`).style.border="1px solid red"
         document.body.classList.remove("is-preload");
       };
       window.ontouchmove = function () {
