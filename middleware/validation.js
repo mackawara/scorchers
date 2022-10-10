@@ -75,15 +75,19 @@ const validatePlayer = (req, res, next) => {
   const errors = myValidationResult(req);
   if (!result.isEmpty()) {
     const formatted = errors.mapped();
-    const arr = [];
-    for (const error in formatted) {
+    console.log(formatted)
+    
+    
+   /*  for (const error in formatted) {
       const element = formatted[error];
-      arr.push(element);
-      console.log(element);
-    }
-
-    console.log(arr);
-    res.status(422).render("regErr.ejs", { arr });
+     
+      
+    //  arr.push(element);
+      
+    } */
+  
+    
+    res.status(422).render("registration.ejs", { formatted });
 
     //next() // to be removed
 
