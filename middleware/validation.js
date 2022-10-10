@@ -77,17 +77,8 @@ const validatePlayer = (req, res, next) => {
     const formatted = errors.mapped();
     console.log(formatted)
     
-    
-   /*  for (const error in formatted) {
-      const element = formatted[error];
-     
-      
-    //  arr.push(element);
-      
-    } */
-  
-    
-    res.status(422).render("registration.ejs", { formatted });
+    res.status(422).send(formatted)
+    //res.status(422).render("registration.ejs", { formatted });
 
     //next() // to be removed
 
