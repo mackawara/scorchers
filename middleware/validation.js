@@ -75,9 +75,9 @@ const validatePlayer = (req, res, next) => {
   const errors = myValidationResult(req);
   if (!result.isEmpty()) {
     const formatted = errors.mapped();
-    console.log(formatted)
-    
-    res.status(422).send(formatted)
+
+    res.setHeader("Content-Type", "application/json");
+    res.status(422).send(formatted);
     //res.status(422).render("registration.ejs", { formatted });
 
     //next() // to be removed
