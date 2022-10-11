@@ -37,7 +37,19 @@ window.addEventListener("DOMContentLoaded", () => {
       redirect: "follow",
       body: formData,
     };
-    const response = await fetch("/registration", options);
-    console.log(response.json());
+    fetch("/registration", options)
+      .then((res) => res.json())
+      .then((response) => {
+        console.log(response);
+        for (const any in response) {
+          const small = document
+            .getElementsByName(`${any}`)[0]
+            .parentElement.getElementsByTagName("small")[0];
+          console.log(small);
+          small.classList.add("error");
+          // small.innerHTML = " test";
+        }
+      });
+    //console.log(response.json());
   }
 });
