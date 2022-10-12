@@ -15,7 +15,8 @@ const validationRules = () => {
       .trim()
       .escape(),
     body("school", "Please select your child`s school")
-      .not("Select One")
+      .not()
+      .isEmpty()
       .trim()
       .escape(),
 
@@ -47,7 +48,8 @@ const validationRules = () => {
       .trim()
       .escape(),
     body("surburb", "Ensure you select your location/surburb")
-      .not("Select One")
+      .not()
+      .isEmpty()
       .trim()
       .escape(),
 
@@ -64,6 +66,7 @@ const validationRules = () => {
 };
 const validatePlayer = (req, res, next) => {
   const result = validationResult(req);
+  console.log(req.body);
 
   const myValidationResult = validationResult.withDefaults({
     formatter: (error) => {
