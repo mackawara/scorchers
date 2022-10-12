@@ -40,13 +40,16 @@ window.addEventListener("DOMContentLoaded", () => {
     fetch("/registration", options)
       .then((res) => res.json())
       .then((response) => {
-        console.log(response);
         for (const any in response) {
+          console.log(any);
+          console.log(`${any}`);
+          console.log(form);
           const small = document
-            .getElementsByName(`${any}`)[0]
-            .parentElement.getElementsByTagName("small")[0];
-          console.log(small);
-          small.classList.add("error");
+            .querySelector(`[name=${any}]`)
+            .parentElement.querySelector("small");
+          /* .parentElement.getElementsByTagName("small")[0]; */
+         small.innerHTML=response[any].message
+
           // small.innerHTML = " test";
         }
       });
