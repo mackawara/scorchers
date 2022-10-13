@@ -923,19 +923,17 @@ form > .fields > .field {
   width: calc(100% - 1.5em);
 }
 
-.other {
-  flex-shrink: 0;
-  width: calc(50% - 2.25em);
-}
 form > .fields > .field.half {
   width: calc(50% - 0.75em);
 }
 form small {
+  display: flex;
   color: #ff8484;
   padding: 0 0 0 0.75em;
   font-size: 0.75rem;
   font-family: "Montserrat", sans-serif;
   font-weight: 200;
+  width: 100%-2.5em;
 }
 .btn-primary {
   width: 100%;
@@ -947,27 +945,24 @@ form small {
   height: 3rem;
   font: 1rem "Montserrat", sans-serrif;
 }
-form > .fields > .other {
+.other {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  margin: 1.5em 0 0 1.5em;
+  text-align: center;
   width: calc(100%-1.5rem);
   border: solid 2px #e5e6e7;
   color: #565554;
   border-radius: 0.5em;
+  flex-shrink: 0;
 }
-.other label,
+label,
 input {
   padding: 0em 0.75em;
   width: calc(50%-1.5em);
 }
-/* 
-.other small {
-  padding: 0em 0.75em;
-  width: calc(100%-2.5em);
-} */
+
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #50514f;
@@ -986,7 +981,7 @@ input {
 
 .other label,
 input {
-  padding: 0em 0.75em;
+  padding: 0.65em 0.75em;
   width: calc(50%-1.5em);
 }
 form > .fields > .field.third {
@@ -1005,13 +1000,14 @@ form > .fields > .field.quarter {
 
   form > .fields > .field,
   .other {
-    width: calc(100% - 2.5em);
+    width: calc(100%);
     display: flex;
     margin: 0, 0.75em;
   }
 
   form > .fields > .field.half {
     width: calc(100% - 1em);
+    flex-wrap: wrap;
   }
 
   form > .fields > .field.third {
@@ -1027,7 +1023,6 @@ label {
   display: block;
 }
 
-input[type="date"],
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -1055,7 +1050,7 @@ textarea {
   outline: none;
 }
 input[type="date"] {
-  width: 50%;
+  width: calc(50%-1.5em);
   border: none;
 }
 input[type="date"]:focus,
