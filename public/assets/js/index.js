@@ -30,6 +30,9 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   async function sendFormData() {
+    document.querySelectorAll("small").forEach((tag) => {
+      tag.innerHTML = "";
+    });
     const formData = new FormData(form);
     const options = {
       method: "POST",
@@ -47,6 +50,7 @@ window.addEventListener("DOMContentLoaded", () => {
           const small = document
             .querySelector(`#${any}`)
             .querySelector("small");
+          small.innerHTML = "";
           small.innerHTML = response[any].message;
         }
       });
