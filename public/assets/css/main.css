@@ -639,7 +639,7 @@ select {
 
 @media screen and (max-width: 1000px) {
   body,
-  input,
+  .other input,
   textarea,
   select {
     font-size: 13pt;
@@ -648,6 +648,7 @@ select {
 
 @media screen and (max-width: 736px) {
   body,
+  .other,
   input,
   textarea,
   select {

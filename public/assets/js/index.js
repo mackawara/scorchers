@@ -41,16 +41,13 @@ window.addEventListener("DOMContentLoaded", () => {
       .then((res) => res.json())
       .then((response) => {
         for (const any in response) {
-          console.log(any);
           console.log(`${any}`);
-          console.log(form);
-          const small = document
-            .querySelector(`[name=${any}]`)
-            .parentElement.querySelector("small");
-          /* .parentElement.getElementsByTagName("small")[0]; */
-         small.innerHTML=response[any].message
 
-          // small.innerHTML = " test";
+          //insert error message into small
+          const small = document
+            .querySelector(`#${any}`)
+            .querySelector("small");
+          small.innerHTML = response[any].message;
         }
       });
     //console.log(response.json());

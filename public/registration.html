@@ -30,18 +30,18 @@
           <p class="text-center p-2">Please register by filling in all the details below</p>
           <form id="myForm" method="post" action="/registration">
             
-            <div class="fields">
+            <div  id="nameChild" class="fields">
               <div class="field half">
-                <input type="text" name="nameChild"  id="nameChild" placeholder="Name of child" />
-              <small>Please enter a valid name</small></div>
-              <div class="field half">
-               <div class="other">
+                <input type="text" name="nameChild"   placeholder="Name of child" />
+              <small></small></div>
+              <div id="dob" class="field half">
+               <div   class="other">
                 <label for="dob">Date of Birth</label>
                 <input type="date" name="dob"  max="2018-01-01" min="2009-01-01" placeholder="Date of Birth" />
                </div>
-                 <small>Please pick a date</small>   </div>
-              <div class="field half">
-                <select class="form-select" name="school" id="school" >
+                 <small></small>   </div>
+              <div id="school" class="field half">
+                <select class="form-select" name="school"  >
                     <option name="school" selected value="select-school" disabled>Select School</option>
                     <option name="school" value="coalfields" class="selectOptions" id="coalfields1">
                         Coalfields</option>
@@ -76,27 +76,27 @@
                         other</option>
                 </select>
                 <small></small>
-              </div> <div class="field half">
-                <input type="email" name="email" placeholder="Email" />
+              </div> <div  id="email" class="field half">
+                <input type="email"  name="email" placeholder="Email" />
              <small></small> </div>
-              <div class="field half">
-                <input type="text" name="parentName" placeholder="Parent`s Name" />
+              <div  id="parentName" class="field half">
+                <input type="text" name="parentName"  placeholder="Parent`s Name" />
              <small></small> </div>
-              <div class="field half">
+              <div  id="contact" class="field half">
                 <input type="tel" name="contact" placeholder="Contact number" />
              <small></small>
             </div>
              
-              <div class="field half">
+              <div id="address" class="field half">
                 <input
                   type="text"
                   name="address"
                   placeholder="Home Address"
                 />
              <small></small> </div>
-              <div class="field half">
+              <div id="surburb" class="field half">
 
-                <select id="surburb" name="surburb">
+                <select  name="surburb">
                     <option name="school" value="selectOne" selected disabled>Surburb</option>
                   <option name="school" value="CBD area">CBD area</option>
                   <option name="school" value="No1 Lwendulu">Lwendulu</option>
