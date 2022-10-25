@@ -60,6 +60,32 @@ app.get("/registration", (req, res, next) => {
   res.sendFile(__dirname + "/public/registration.html");
 });
 
+app.get("/whatsapp", (req, res) => {
+  console.log(req.query);
+  /**
+   * UPDATE YOUR VERIFY TOKEN
+   *This will be the Verify Token value when you set up webhook
+   **/
+  const verify_token = process.env.VERIFY_TOKEN;
+
+  // Parse params from the webhook verification request
+  let mode = req.query["hub.mode"];
+  let hookToken = req.query["hub.verify_token"];
+  let challenge = req.query["hub.challenge"];
+
+  // Check if a token and mode were sent
+  if (mode && hookToken) {
+    // Check the mode and token sent are correct
+    if (mode === "subscribe" && hookToken === verify_token) {
+      // Respond with 200 OK and challenge token from the request
+      console.log("WEBHOOK_VERIFIED");
+      res.status(200).send(challenge);
+    } else {
+      res.sendStatus(403);
+    }
+  }
+});
+
 app.post(
   "/registration",
   validationRules(),
