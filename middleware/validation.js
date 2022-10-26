@@ -44,7 +44,7 @@ const validationRules = () => {
       .isNumeric()
       .withMessage(`Ensure your mobile number has no invalid characters`)
       .isMobilePhone()
-      .withMessage(`Ensure you entered a valid Mobile number`)
+      .withMessage(`Enter a valid ZIMBABWE Mobile number eg +263775123123`).matches(/(\+263|0)7[7-8|1|3][0-9]{7}$/)
       .trim()
       .escape(),
     body("surburb", "Ensure you select your location/surburb")
