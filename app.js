@@ -68,9 +68,9 @@ app.get("/registration", (req, res, next) => {
 });
 const sendWhatsapp = require("./middleware/sendWhatsapp");
 
-//sendWhatsapp(263775231426,"hi")
-app.post("/broadcastMessage", (req, res) => {
-  let body = req.body.message;
+app.post("/whatsapp", (req, res) => {
+  console.log(" message recieved")
+  console.log(req.body)
 
   if (req.body.object) {
     if (
@@ -84,7 +84,7 @@ app.post("/broadcastMessage", (req, res) => {
         req.body.entry[0].changes[0].value.metadata.phone_number_id;
       let from = req.body.entry[0].changes[0].value.messages[0].from; // extract the phone number from the webhook payload
       let msg_body = req.body.entry[0].changes[0].value.messages[0].text.body; // extract the message text from the webhook payload
-      sendWhatsapp(00263775231426, msg_body);
+      sendWhatsapp("263775231426", msg_body);
     }
     res.sendStatus(200);
   } else {
@@ -101,7 +101,7 @@ app.get("/whatsapp", (req, res) => {
    *This will be the Verify Token value when you set up webhook
    **/
   const verify_token = process.env.VERIFY_TOKEN;
-
+  sendWhatsapp("263775231426", "thank you for your message");
   // Parse params from the webhook verification request
   let mode = req.query["hub.mode"];
   let hookToken = req.query["hub.verify_token"];
@@ -120,7 +120,6 @@ app.get("/whatsapp", (req, res) => {
   }
 });
 
-sendWhatsapp("263775231426","test")
 app.post(
   "/registration",
   validationRules(),
