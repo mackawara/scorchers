@@ -5,6 +5,11 @@ const multer = require("multer");
 const upload = multer();
 const ejs = require("ejs");
 
+//Whataspp Connections
+const WHATSAPP_TOKEN = process.env.WHATSAPP_TOKEN;
+const WHATSAPP_PHONE_NUMBER_ID = process.env.WHATSAPP_PHONE_NUMBER_ID;
+const WHATSAPP_BUSINESS_ID = process.env.WHATSAPP_BUSINESS_ID;
+
 // mongo db database
 const mongoose = require("mongoose");
 const { MongoClient } = require("mongodb");
@@ -18,9 +23,10 @@ const options = {
 };
 const uri = process.env.MONGOBD_URI;
 try {
-  let connection = mongoose.connect(process.env.MONGODB_URI || uri, options);
+  let connection = mongoose.connect(uri, options);
   const database = mongoose.connection;
-  database.on("error", console.error.bind(console, "connection error:"));
+
+  database.on("error", console.error.bind(console, "There was an error:"));
   database.once("open", function () {
     console.log(`DAtabase connection established`);
   });
@@ -57,10 +63,38 @@ const { savePlayerToDb, playerModel } = require("./middleware/savePlayer");
 const formatted = {};
 app.get("/registration", (req, res, next) => {
   console.log(" registration sectin");
+
   res.sendFile(__dirname + "/public/registration.html");
+});
+const sendWhatsapp = require("./middleware/sendWhatsapp");
+
+//sendWhatsapp(263775231426,"hi")
+app.post("/broadcastMessage", (req, res) => {
+  let body = req.body.message;
+
+  if (req.body.object) {
+    if (
+      req.body.entry &&
+      req.body.entry[0].changes &&
+      req.body.entry[0].changes[0] &&
+      req.body.entry[0].changes[0].value.messages &&
+      req.body.entry[0].changes[0].value.messages[0]
+    ) {
+      let phone_number_id =
+        req.body.entry[0].changes[0].value.metadata.phone_number_id;
+      let from = req.body.entry[0].changes[0].value.messages[0].from; // extract the phone number from the webhook payload
+      let msg_body = req.body.entry[0].changes[0].value.messages[0].text.body; // extract the message text from the webhook payload
+      sendWhatsapp(00263775231426, msg_body);
+    }
+    res.sendStatus(200);
+  } else {
+    // Return a '404 Not Found' if event is not from a WhatsApp API
+    res.sendStatus(404);
+  }
 });
 
 app.get("/whatsapp", (req, res) => {
+  console.log(" test received");
   console.log(req.query);
   /**
    * UPDATE YOUR VERIFY TOKEN
@@ -86,14 +120,25 @@ app.get("/whatsapp", (req, res) => {
   }
 });
 
+sendWhatsapp("263775231426","test")
 app.post(
   "/registration",
   validationRules(),
   validatePlayer,
   savePlayerToDb,
-  (req, res, next) => {
-    res.render("regSuccess.ejs", { player: req.body });
+  (req, res) => {
+    const contact = "263" + req.body.contact.slice(-9);
+    const nameChild = req.body.nameChild;
+    const message = `Hi ${nameChild}, \n thank you for your registration to Scorchers Cricket, Welcome!!. Your details have been stored in the Scorchers Cricket database. \n
+    Please visit our website scorchers.co.zw for information about us.
+    See you at Megawatt school grounds on Saturday at 0830hrs for training \n
+    Bring your water bottles for rehydration and remember to have fun `;
+    sendWhatsapp(contact, message);
+    res.redirect("/registrationSuccess");
     /* res.status(200).send("Registration successfuly received"); */
   }
 );
+app.get("/registrationSuccess", (req, res) => {
+  res.render("registration.ejs");
+});
 app.listen(PORT, console.log(" server listening on port" + PORT));
