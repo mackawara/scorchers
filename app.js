@@ -84,7 +84,8 @@ app.post("/whatsapp", (req, res) => {
         req.body.entry[0].changes[0].value.metadata.phone_number_id;
       let from = req.body.entry[0].changes[0].value.messages[0].from; // extract the phone number from the webhook payload
       let msg_body = req.body.entry[0].changes[0].value.messages[0].text.body; // extract the message text from the webhook payload
-      sendWhatsapp("263775231426", msg_body);
+     sendWhatsapp(from, msg_body);
+     
     }
     res.sendStatus(200);
   } else {
