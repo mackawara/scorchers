@@ -125,7 +125,7 @@ app.post(
   "/registration",
   validationRules(),
   validatePlayer,
-  savePlayerToDb,
+  savePlayerToDb, 
   (req, res) => {
     const contact = "263" + req.body.contact.slice(-9);
     const nameChild = req.body.nameChild;
@@ -134,11 +134,11 @@ app.post(
     See you at Megawatt school grounds on Saturday at 0830hrs for training \n
     Bring your water bottles for rehydration and remember to have fun `;
     sendWhatsapp(contact, message);
-    res.redirect("/registrationSuccess");
+    //res.redirect("/registrationSuccess");
+    res.render("registration.ejs",{player:nameChild});
     /* res.status(200).send("Registration successfuly received"); */
   }
 );
 app.get("/registrationSuccess", (req, res) => {
-  res.render("registration.ejs");
 });
 app.listen(PORT, console.log(" server listening on port" + PORT));
