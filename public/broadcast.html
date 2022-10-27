@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+	Aerial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Scorchers Cricket</title>
+    <meta charset="utf-8" g/>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/jumbotron.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <div id="wrapper">
+          
+      <div id="box">
+        <!-- Header -->
+       <header>
+        <h4>Hi Coach</h4>
+        <p>Type your Broadcast Message below</p>
+        <form method="post" action="/broadcast">
+                   <div class="field">
+               <textarea
+                 name="health"
+                 placeholder="Please type your message for the parents here"
+                 rows="6"
+               ></textarea>
+             </div>
+         
+             <button type="submit" class="btn btn-primary">Submit</button>
+           </div>
+         </form>
+       </header>
+
+        <!-- Footer -->
+       
+      </div>
+    </div>
+    <script>
+      window.onload = function () {
+        document.body.classList.remove("is-preload");
+      };
+      window.ontouchmove = function () {
+        return false;
+      };
+      window.onorientationchange = function () {
+        document.body.scrollTop = 0;
+      };
+    </script>
+  </body>
+</html>
