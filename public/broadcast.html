@@ -1,50 +1,54 @@
 <!DOCTYPE html>
-<!--
-	Aerial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
   <head>
     <title>Scorchers Cricket</title>
-    <meta charset="utf-8" g/>
+    <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
-    <link rel="stylesheet" href="assets/css/jumbotron.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
     <noscript
       ><link rel="stylesheet" href="assets/css/noscript.css"
     /></noscript>
   </head>
   <body class="is-preload">
     <div id="wrapper">
+      <!-- <div id="bg"></div> -->
+      <div id="overlay"></div>
+      <div id="main">
+       <div class="box">
+<h1 class="text-center" id="regHeader"></h1>
+      </div>
+      <!-- registration form -->
+      <div class="box">
+          <p class="text-center p-2">Please share your brodcast message here</p>
+          <form id="myForm" method="post" action="/broadcast">
+            
+              <div class="field">
+                <textarea
+                  name="message"
+                  placeholder="Please share messages here"
+                  rows="6"
+                ></textarea>
+            <small></small>  </div>
           
-      <div id="box">
-        <!-- Header -->
-       <header>
-        <h4>Hi Coach</h4>
-        <p>Type your Broadcast Message below</p>
-        <form method="post" action="/broadcast">
-                   <div class="field">
-               <textarea
-                 name="health"
-                 placeholder="Please type your message for the parents here"
-                 rows="6"
-               ></textarea>
-             </div>
-         
-             <button type="submit" class="btn btn-primary">Submit</button>
-           </div>
-         </form>
-       </header>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
 
         <!-- Footer -->
-       
+        <footer id="footer">
+          
+        </footer>
       </div>
     </div>
     <script>
       window.onload = function () {
+     
+     
         document.body.classList.remove("is-preload");
       };
       window.ontouchmove = function () {
@@ -54,5 +58,6 @@
         document.body.scrollTop = 0;
       };
     </script>
+     <script src="assets/js/index.js"></script>
   </body>
 </html>
