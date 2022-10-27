@@ -4,16 +4,17 @@ const PORT = process.env.PORT || 3000;
 const multer = require("multer");
 const upload = multer();
 const ejs = require("ejs");
+const axios = require("axios");
 
 //Whataspp Connections
+require("dotenv").config();
 const WHATSAPP_TOKEN = process.env.WHATSAPP_TOKEN;
 const WHATSAPP_PHONE_NUMBER_ID = process.env.WHATSAPP_PHONE_NUMBER_ID;
 const WHATSAPP_BUSINESS_ID = process.env.WHATSAPP_BUSINESS_ID;
-
+console.log(WHATSAPP_PHONE_NUMBER_ID);
 // mongo db database
 const mongoose = require("mongoose");
 const { MongoClient } = require("mongodb");
-require("dotenv").config();
 
 const databaseName = "players";
 const options = {
@@ -69,8 +70,8 @@ app.get("/registration", (req, res, next) => {
 const sendWhatsapp = require("./middleware/sendWhatsapp");
 
 app.post("/whatsapp", (req, res) => {
-  console.log(" message recieved")
-  console.log(req.body)
+  console.log(" message recieved");
+  console.log(req.body);
 
   if (req.body.object) {
     if (
@@ -84,8 +85,6 @@ app.post("/whatsapp", (req, res) => {
         req.body.entry[0].changes[0].value.metadata.phone_number_id;
       let from = req.body.entry[0].changes[0].value.messages[0].from; // extract the phone number from the webhook payload
       let msg_body = req.body.entry[0].changes[0].value.messages[0].text.body; // extract the message text from the webhook payload
-     
-
     }
     res.sendStatus(200);
   } else {
@@ -93,6 +92,31 @@ app.post("/whatsapp", (req, res) => {
     res.sendStatus(404);
   }
 });
+const WHATSAPP_6_DIGIT_PIN = process.env.WHATSAPP_6_DIGIT_PIN;
+/*  
+try {
+  axios({
+    method: "POST",
+    url:
+      "https://graph.facebook.com/v14.0/" +
+      WHATSAPP_PHONE_NUMBER_ID +
+      "/register?access_token=" +
+      token,
+    data: {
+      messaging_product: "whatsapp",
+      pin: WHATSAPP_6_DIGIT_PIN,
+    },
+    headers: {
+      "Content-Type": "application/json",
+      // "Authorization": "EAAMIqE4rPbcBAMaZCHT2xDGrKe3DQee2ldrGHjgIMuZA2qxqbXM9GOEfULgJJCZBRyfns8Fya1avEsa2juBcS2gkLeSyJb0cPWgGaYhoeoHgRy9HGqzuLYxVWNotVxoXTUnZB3N2tiCkHPtZBms2gGIdYVZCZCaTZBUepJlNGkENHKzvLqWZA25mYDEopAgQLeDfD17jZAMERSyZC7KHvJu5IBTnktYGZB9AVmwZD",
+    },
+  }).then((data) => {
+    console.log(data);
+    // return "Booking was saved , confirmation was also sent to your email";
+  });
+} catch (error) {
+  console.log(" ërror");
+} */
 
 app.get("/whatsapp", (req, res) => {
   console.log(" test received");
@@ -120,12 +144,18 @@ app.get("/whatsapp", (req, res) => {
     }
   }
 });
-
+app.get("/broadcast", (req, res) => {
+  res.sendFile(__dirname + "/public/broadcast.html");
+});
+app.post("/broadcast", (req, res) => {
+  const message = req.body.message;
+  sendWhatsapp("263775231426", message);
+});
 app.post(
   "/registration",
   validationRules(),
   validatePlayer,
-  savePlayerToDb, 
+  savePlayerToDb,
   (req, res) => {
     const contact = "263" + req.body.contact.slice(-9);
     const nameChild = req.body.nameChild;
@@ -135,10 +165,9 @@ app.post(
     Bring your water bottles for rehydration and remember to have fun `;
     sendWhatsapp(contact, message);
     //res.redirect("/registrationSuccess");
-    res.render("registration.ejs",{player:nameChild});
+    res.render("registration.ejs", { player: nameChild });
     /* res.status(200).send("Registration successfuly received"); */
   }
 );
-app.get("/registrationSuccess", (req, res) => {
-});
+app.get("/registrationSuccess", (req, res) => {});
 app.listen(PORT, console.log(" server listening on port" + PORT));
